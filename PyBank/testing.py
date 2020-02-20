@@ -10,6 +10,7 @@ def calculations (Data):
 
     month = str(Data[0])
     profit_loss = int(Data[1])
+        #for ii in range(len(Data))
 
     print(month)
     print(profit_loss)
@@ -19,12 +20,14 @@ def calculations (Data):
 
 with open (budget_data, 'r') as csvfile:
 
-    datareader = csv.reader (csvfile, delimiter = ',')
+    datareader = csv.reader(csvfile, delimiter = ',')
 
     header = next(datareader)
-    
-    for go in datareader:
-            calculations(go)
+    dataList = list(datareader)
+    print(dataList)
+    num = len(dataList)
+    print(num)
+    #for go in dataList:
+            #calculations(go)
             #break
 
-        
