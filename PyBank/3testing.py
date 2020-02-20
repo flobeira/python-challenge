@@ -4,7 +4,7 @@ import csv
 def function_1(file_loc):
     with open(file_loc, 'r') as csvfile:
         datareader = csv.reader(csvfile, delimiter=',')
-        header = next(datareader)
+        next(datareader)
         dataList = list(datareader)
     number_of_months = len(dataList)
 
