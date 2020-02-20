@@ -41,20 +41,10 @@ def function_1(file_loc):
 
     print(max_month)
 
-
-
     print(months)
-    print(profit_loss)
 
-    print("Net Profit: " + str(net_profit))
+    
 
-    print(change_profit)
-
-    print("average sum "+ str(average_change))
-
-
-    print(maxChange)
-    print(minChange)
 
 function_1('c:/Users/franc/Desktop/UCSD/Homework/python-challenge/PyBank/Resources/budget_data.csv')
 
