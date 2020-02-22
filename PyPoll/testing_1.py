@@ -9,8 +9,13 @@
     # The winner of the election based on popular vote.
 
 import csv 
+import os
 
+
+raw_data = os.path.join('Resources','election_data.csv')
+file_to_outload = os.path.join('Analysis','election_analysis.txt')
 raw_data = 'c:/Users/franc/Desktop/UCSD/Homework/python-challenge/PyPoll/Resources/election_data.csv'
+file_to_outload = 'c:/Users/franc/Desktop/UCSD/Homework/python-challenge/PyPoll/Analysis/election_analysis.txt'
 
 with open (raw_data, 'r') as csvfile:
     
@@ -29,14 +34,20 @@ with open (raw_data, 'r') as csvfile:
         voter_ID.append(int(voters))
         county.append(str(region))
         candidate.append(str(cand))
+
+    #for ii in candidate:
+     #       if ii not in candidates2:
+      #          candidates2.append(candidate)
+       #     else: 
+        #        candidate += 1
+         #   pass 
     
     total = len(voter_ID)
-
 
     correy_counter = 0
     khan_counter = 0
     li_counter = 0
-    otoolay_counter = 0 
+    otoolay_counter = 0
     for ii in candidate:
         if ii == "Correy":
             correy_counter = correy_counter + 1
@@ -47,16 +58,16 @@ with open (raw_data, 'r') as csvfile:
         elif  ii == "O'Tooley":
             otoolay_counter = otoolay_counter + 1 
 
+    winner = max(correy_counter,khan_counter,li_counter,li_counter)
+
     #Calculate percentages and create variables to store them
     correy_percentage = round((correy_counter/total)*100)
     khan_percentage = round((khan_counter/ total)*100)
     li_percentage = round((li_counter/total)*100)
     otoolay_percentage = round((otoolay_counter/total)*100)
 
-
-
-
 # Results
+
 
 print("Election Results")
 print("------------------------------")
@@ -66,8 +77,25 @@ print("Khan: " + str(khan_percentage) + "%" + "   (" + str(khan_counter)+")")
 print("Correy: " + str(correy_percentage)+"%" + "   (" + str(correy_counter)+")")
 print("Li: " + str(li_percentage)+"%" + "   (" + str(li_counter)+")")
 print("O'Tooley: " + str(otoolay_percentage)+"%" + "   (" + str(otoolay_counter)+")")
-
-
-
+print("------------------------------")
+print("Winner: " + "Khan")
+print("------------------------------")
+ 
+with open (file_to_outload, "w") as txt_file:
+    election_results = (f"Election Results"
+    f"------------------------------"
+    f"Total Votes: {str(len(voter_ID))}"
+    f"------------------------------"
+    f"Khan: {str(khan_percentage)} %  {str(khan_counter)}"
+    f"Correy:   {str(correy_percentage)} %  {str(correy_counter)}"
+    f"Li: {str(li_percentage)}%  {str(li_counter)}"
+    f"O'Tooley:  {str(otoolay_percentage)}% {str(otoolay_counter)}"
+    f"------------------------------"
+    f"Winner:   Khan"
+    f"------------------------------"
+    )
+    print(election_results, end="")
+    
+    txt_file.write(election_results)
 
 

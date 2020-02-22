@@ -4,8 +4,10 @@
 import os
 import csv
 
-def function_1(file_loc):
-    with open(file_loc, 'r') as csvfile:
+file_path = os.path.join("Resources", "budget_data.csv")
+
+def function_1():
+    with open(file_path, 'r') as csvfile:
         datareader = csv.reader(csvfile, delimiter=',')
         next(datareader)
         dataList = list(datareader)
@@ -55,6 +57,7 @@ def function_1(file_loc):
 
     
 
+
     print("Finanacial Analysis")
     print("--------------------------------")
 
@@ -64,5 +67,5 @@ def function_1(file_loc):
     print("Greatest Increase in Profits: " + max_month + " $"+ str(maxChange))
     print("Greatest Decrease in Profits: " + min_month + " $"+ str(minChange))
 
-
-function_1('c:/Users/franc/Desktop/UCSD/Homework/python-challenge/PyBank/Resources/budget_data.csv')
+#function_1(os.path.join("Resources", "budget_data.csv")
+#function_1('c:/Users/franc/Desktop/UCSD/Homework/python-challenge/PyBank/Resources/budget_data.csv')
